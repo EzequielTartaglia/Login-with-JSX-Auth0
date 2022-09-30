@@ -76,7 +76,7 @@ nav a{
 }
 .nav-custom{
   flex-wrap: wrap;
-  padding: 5px;
+  padding: 4px;
 }
 .img-nav-custom,.loginButton, .logoutButton {
   align-items: center;
@@ -125,7 +125,7 @@ nav a{
 .sessionInfo li {
   font-size: 0.6em;
   color: rgb(14, 205, 151);
-  margin-bottom: 0.2em;
+  margin-bottom: -0.3em;
 
 }
 .sessionInfo li em{
@@ -141,7 +141,7 @@ nav a{
   margin: 0;
   background: none;
   box-shadow:none;
-  margin-bottom: 0.2em;
+  margin-bottom: -0.3em;
   
 
 }
