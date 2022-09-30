@@ -30,7 +30,7 @@ export default function NavegadorBar(){
             {isAuthenticated       
             ?<ul className="sessionInfo">
                 <li >{user.name}</li> 
-                <li ><LogoutButton/></li> 
+                <li ><CustomLink to="/"><LogoutButton/></CustomLink></li> 
                 <li ><em><u>Ultimo inicio:</u> {user.updated_at}</em></li>
                 
                 
