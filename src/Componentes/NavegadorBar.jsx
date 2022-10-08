@@ -12,13 +12,33 @@ export default function NavegadorBar(){
     //Datos del usuario
     const {user,isAuthenticated} = useAuth0()
     
+ /*    let usuarioInicioSesion = localStorage.getItem('Usuario reconocido');
 
+    if(!usuarioInicioSesion === true){
+        usuarioInicioSesion = JSON.stringify(user.name)
+        localStorage.setItem('Usuario reconocido', usuarioInicioSesion)
+         
+/*         usuarioInicioSesionIMG = JSON.stringify(user.picture)  
+        localStorage.setItem('User Img', usuarioInicioSesionIMG)
+
+        usuarioInicioSesionDATE = JSON.stringify(user.updated_at) 
+        localStorage.setItem('User Updated reconocido', usuarioInicioSesionDATE) 
+ */       
+   /*   }
+    else{
+        localStorage.removeItem('Usuario reconocido', usuarioInicioSesion) */ 
+
+/*         localStorage.removeItem('User Img', usuarioInicioSesionIMG)
+
+        localStorage.removeItem('User Updated reconocido', usuarioInicioSesionDATE) 
+ */
+   /*   } */
 
     return <nav className="nav">
             <Link to="/inicio" className="site-title"><img src={logo} alt="" /></Link>
             
             <ul className="principalMenu">
-            <CustomLink to="/inicio">[Inicio]</CustomLink>
+            <CustomLink to="/inicio">[Inicio]</CustomLink> 
             <CustomLink to="/completadas">[Completadas]</CustomLink>
             <CustomLink to="/incompletas">[Por hacer]</CustomLink>
             </ul>
@@ -31,11 +51,24 @@ export default function NavegadorBar(){
             ?<ul className="sessionInfo">
                 <li >{user.name}</li> 
                 <li ><CustomLink to="/"><LogoutButton/></CustomLink></li> 
-                <li ><em><u>Ultimo inicio:</u> {user.updated_at}</em></li>
+                <li ><em><u>Ultimo inicio:</u> {user.updated_at}</em></li> 
                 
-                
-            </ul>   
-            :<LoginButton/>}
+                {/* Informacion al almacenamiento local */}
+                {localStorage.setItem('User', user.name)} 
+                {localStorage.setItem('User img', user.picture)}
+                {localStorage.setItem('Last Updated', user.updated_at)}   
+            </ul> 
+
+            :<ul><LoginButton/> 
+             
+                {/*Quitar informacion al almacenamiento local */}
+                {localStorage.removeItem('User')}
+                {localStorage.removeItem('User img')}
+                {localStorage.removeItem('Last Updated')}
+
+            </ul>
+            }
+
             </ul>
 
            
@@ -43,7 +76,7 @@ export default function NavegadorBar(){
         </nav>
 }
 
-function CustomLink({to, children, ...props}) {
+export function CustomLink({to, children, ...props}) {
 
     const resolvedPath = useResolvedPath(to)
     const isActive = useMatch({path: resolvedPath.pathname})
@@ -105,3 +138,4 @@ export const LoginButton = () => {
 
     </>)
 }
+
