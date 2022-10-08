@@ -11,28 +11,6 @@ export default function NavegadorBar(){
 
     //Datos del usuario
     const {user,isAuthenticated} = useAuth0()
-    
- /*    let usuarioInicioSesion = localStorage.getItem('Usuario reconocido');
-
-    if(!usuarioInicioSesion === true){
-        usuarioInicioSesion = JSON.stringify(user.name)
-        localStorage.setItem('Usuario reconocido', usuarioInicioSesion)
-         
-/*         usuarioInicioSesionIMG = JSON.stringify(user.picture)  
-        localStorage.setItem('User Img', usuarioInicioSesionIMG)
-
-        usuarioInicioSesionDATE = JSON.stringify(user.updated_at) 
-        localStorage.setItem('User Updated reconocido', usuarioInicioSesionDATE) 
- */       
-   /*   }
-    else{
-        localStorage.removeItem('Usuario reconocido', usuarioInicioSesion) */ 
-
-/*         localStorage.removeItem('User Img', usuarioInicioSesionIMG)
-
-        localStorage.removeItem('User Updated reconocido', usuarioInicioSesionDATE) 
- */
-   /*   } */
 
     return <nav className="nav">
             <Link to="/inicio" className="site-title"><img src={logo} alt="" /></Link>
