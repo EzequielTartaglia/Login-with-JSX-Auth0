@@ -1,4 +1,6 @@
 export default function TareasIncompletas() {
 
-    return <h1>[Por hacer]</h1>
+    return <>
+    <h1>[Por hacer]</h1>
+    </>
 }

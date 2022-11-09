@@ -1,4 +1,7 @@
 export default function Inicio() {
 
-    return <h1>[Inicio]</h1>
+    return <>
+    <h1>[Inicio]</h1>
+    
+    </>
 }
