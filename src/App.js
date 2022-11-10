@@ -1,5 +1,6 @@
 //Estilos desde .css
-import './App.css';
+import './Styles/App.css';
+import'./Styles/NavegadorBar.css'
 //Paginas para enlazar (SPA)
 import Inicio from './Pages/Inicio';
 import TareasCompletas from './Pages/TareasCompletas';

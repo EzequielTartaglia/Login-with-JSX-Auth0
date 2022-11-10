@@ -1,0 +1,91 @@
+.container{
+    width: 30%;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.form{
+    display: flex;
+    gap: 5px;
+    margin: auto;
+
+}
+
+.taskInput{
+    margin: auto;
+    padding: 10px;
+    border-radius: 6px;
+    border: solid 1px #999;
+}
+
+.btnCreateTask{
+    border: solid 0.1px rgb(8, 8, 8);
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-weight: bold;
+    background-color: black;
+    color: aliceblue;
+ box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.555);
+ 
+}
+
+.btnCreateTask:hover,#buttonEdit:hover{
+ background-color: aquamarine;
+ color: rgb(5, 5, 5);
+ padding: 10px 20px;
+ box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.555);
+cursor: pointer;
+
+}
+
+
+.tasksContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.taskToDo{
+    padding: 5px;
+    background-color: rgb(243, 243, 243);
+    border-radius: 12px;
+}
+
+.taskTitle{
+ flex: 1;
+ font-size: 20px;
+ padding: 10px;
+}
+
+#taskUpdateForm, #taskInformation{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    
+
+}
+
+#buttonEdit, #buttonDelete{
+    border: solid 0.1px rgb(8, 8, 8);
+    border-radius: 6px;
+    background-color: black;
+    color: aliceblue;
+    padding: 10px 20px;
+    font-weight: bold;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.555);
+
+    
+}
+
+#buttonDelete{
+    background-color: rgb(190, 0, 0);
+}
+
+#buttonDelete:hover{
+    background-color: rgb(248, 8, 8);
+    color: black;
+    cursor: pointer;
+}
