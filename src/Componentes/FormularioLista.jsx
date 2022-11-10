@@ -41,7 +41,7 @@ export function FormularioLista() {
     function handleClickUpdate(id, value){
 
         const copiedList = [...lista]
-        const item = copiedList.find(item => item.id == id)
+        const item = copiedList.find(item => item.id === id)
         item.title = value
         setLista(copiedList)
     }
@@ -49,7 +49,7 @@ export function FormularioLista() {
     //Funcion para eliminar task(tarea)
     function handleDelete(id){
         //Encontrar ese id
-        const copiedList = lista.filter(item => item.id != id)
+        const copiedList = lista.filter(item => item.id !== id)
         setLista(copiedList)
     }
 
