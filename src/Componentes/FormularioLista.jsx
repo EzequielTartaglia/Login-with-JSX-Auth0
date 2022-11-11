@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Task from "./Task"
 import '../Styles/FormularioLista.css'
 
@@ -8,6 +8,12 @@ export function FormularioLista() {
     const [title, setTitle] = useState('')
     const [lista,setLista] = useState([])
 
+    useEffect(() =>{
+      if(localStorage.getItem("Lista almacenada")){
+        const savedList = JSON.parse(localStorage.getItem("Lista almacenada"))
+        setLista(savedList)
+      }
+    },[])
 
     //Recibir informacion del input text
     function handleChange(e){
@@ -21,20 +27,18 @@ export function FormularioLista() {
     function handleSubmit(e){
         e.preventDefault()
 
-        const newTask = {
-            id: crypto.randomUUID(),
+        if(title) {
+            const newTask = {id: crypto.randomUUID(),
             title: title,
-            completed: false
+            completed: false}
+            //Copiar la lista y setearlo
+            setLista([...lista,newTask])
+            //Agregarlo al LocalStorage
+            localStorage.setItem("Lista almacenada",JSON.stringify([...lista,newTask]))
+           //Borrar el valor(al cambiar estado)
+            setTitle("")
         }
 
-        //Copiar la lista
-        const copiedList = [...lista]
-        //Agregar este elemento a la lista
-        copiedList.unshift(newTask)
-        //Setearlo
-        setLista(copiedList)
-        //Borrar el valor(al cambiar estado)
-        setTitle("")
     }
 
     //Funcion para procesar el cambio de valores entre antiguo valor y editado
@@ -43,21 +47,36 @@ export function FormularioLista() {
         const copiedList = [...lista]
         const item = copiedList.find(item => item.id === id)
         item.title = value
+        //Guardar valor modificado en el localStorage
+        localStorage.setItem("Lista almacenada",JSON.stringify([...copiedList]))
         setLista(copiedList)
+        
     }
 
     //Funcion para eliminar task(tarea)
     function handleDelete(id){
         //Encontrar ese id
-        const copiedList = lista.filter(item => item.id !== id)
-        setLista(copiedList)
+        const deleted = lista.filter(item => item.id !== id)
+        setLista(deleted)
+        //Borrar en localStorage
+        localStorage.setItem("Lista almacenada",JSON.stringify(deleted))
     }
 
     return <>
     <div className="container">
         <form className="form" onSubmit={handleSubmit}>
-            <input onChange={handleChange}className="taskInput" value={title}/>
-            <input onClick={handleSubmit} className="btnCreateTask" type="submit" value="Crear nueva tarea" />
+
+            <input 
+            onChange={handleChange}
+            className="taskInput" 
+            value={title}/>
+
+            <input 
+            onClick={handleSubmit} 
+            className="btnCreateTask" 
+            type="submit" 
+            value="Crear nueva tarea" />
+
         </form>
         <div className="tasksContainer">
             {/* Recorrido del array */}
