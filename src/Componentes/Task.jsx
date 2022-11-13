@@ -45,7 +45,6 @@ export default function Task({ item, onUpdate, onDelete, onDone, completed }){
         <span className='taskTitle'>{item.title} </span>
 
 
-{/* ------------------Working-------------------- */}
         {completed 
         ?(<button id="buttonDoneStarted" onClick={(e) => onDone(item.id)}>{FaRegClock()}</button>) 
         :(<button id="buttonDone" onClick={(e) => onDone(item.id)}>{FaPlay()}</button>)
@@ -55,7 +54,6 @@ export default function Task({ item, onUpdate, onDelete, onDone, completed }){
         </div>)
 
     }
-{/* ------------------Working-------------------- */}
 
     return <div className='taskToDo'>{isEditar ? <FormEditar/>: <TaskElement/>}
     </div>
