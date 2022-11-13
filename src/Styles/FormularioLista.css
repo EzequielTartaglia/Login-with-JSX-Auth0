@@ -69,25 +69,84 @@ cursor: pointer;
     
 
 }
-
-#buttonEdit, #buttonDelete{
+#taskUpdateForm button{
     border: solid 0.1px rgb(8, 8, 8);
-    border-radius: 6px;
     background-color: black;
     color: aliceblue;
     padding: 10px 20px;
     font-weight: bold;
     box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.555);
+    border-radius: 6px;
 
+}
+#taskUpdateForm button:hover{
+    border: solid 0.1px rgb(8, 8, 8);
+    background-color: aquamarine;
+    color: black;
+    padding: 10px 20px;
+    font-weight: bold;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.555);
+    border-radius: 6px;
+
+}
+#buttonDelete,#buttonDone,#buttonDoneStarted{
+    border: solid 0.1px rgb(8, 8, 8);
+    background-color: black;
+    color: aliceblue;
+    padding: 8px 10px;
+    font-weight: bold;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.555);
+    border-radius: 6px;
     
+}
+#buttonEdit{       
+    background-color: rgb(243, 243, 243);
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    border: none;
+
+}
+#buttonEdit:hover{
+    color: rgb(138, 135, 135);
+    background-color: rgb(243, 243, 243);
+    box-shadow: none;
+
+
 }
 
 #buttonDelete{
     background-color: rgb(190, 0, 0);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+
 }
 
 #buttonDelete:hover{
     background-color: rgb(248, 8, 8);
     color: black;
     cursor: pointer;
+}
+#buttonDone{
+    background-color: rgb(0, 0, 0);
+    color:white;    
+    cursor: pointer;
+   
+}
+#buttonDone:hover{
+    background-color: rgb(7, 211, 58);
+    color: black;
+    cursor: pointer;
+
+}
+#buttonDoneStarted{
+    background-color: rgb(248, 235, 2);
+    color: black;
+    cursor: pointer;
+    font-size: 13px;
+}
+#buttonDoneStarted:hover{
+    background-color: rgb(253, 247, 131);
+    color: black;
+    cursor: pointer;
+
 }

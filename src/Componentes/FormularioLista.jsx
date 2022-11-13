@@ -62,6 +62,20 @@ export function FormularioLista() {
         localStorage.setItem("Lista almacenada",JSON.stringify(deleted))
     }
 
+    function handleDone(id){
+        const copiedList = [...lista]
+        const item = lista.findIndex(item => item.id === id)
+        copiedList[item] = {
+            id: copiedList[item].id,
+            title: copiedList[item].title,
+            completed: !copiedList[item].completed
+        }
+        localStorage.setItem("Lista almacenada",JSON.stringify(copiedList))
+        setLista(copiedList)
+
+        
+    }
+
     return <>
     <div className="container">
         <form className="form" onSubmit={handleSubmit}>
@@ -81,7 +95,14 @@ export function FormularioLista() {
         <div className="tasksContainer">
             {/* Recorrido del array */}
             {lista.map(item => (
-                <Task key={item.id} item={item} onUpdate={handleClickUpdate} onDelete={handleDelete}/>
+                <Task 
+                key={item.id} 
+                item={item} 
+                onUpdate={handleClickUpdate} 
+                onDelete={handleDelete} 
+                onDone={handleDone}
+                completed={item.completed}
+                />
             ))}
         </div>
     </div>

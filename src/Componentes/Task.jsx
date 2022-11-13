@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import '../Styles/FormularioLista.css'
+import { FaRegClock,FaPlay,FaEdit,FaTrash } from "react-icons/fa";
 
-export default function Task({ item, onUpdate, onDelete }){
+export default function Task({ item, onUpdate, onDelete, onDone, completed }){
     
     const [isEditar, setIsEditar] = useState(false)
     
@@ -40,12 +41,21 @@ export default function Task({ item, onUpdate, onDelete }){
     function TaskElement(){
 
         return (<div id='taskInformation'>
+        <button id='buttonEdit' onClick={() => setIsEditar(true)}>{FaEdit()}</button>
         <span className='taskTitle'>{item.title} </span>
-        <button id='buttonEdit' onClick={() => setIsEditar(true)}>Editar</button>
-        <button id="buttonDelete" onClick={(e) => onDelete(item.id)}>Eliminar</button>
+
+
+{/* ------------------Working-------------------- */}
+        {completed 
+        ?(<button id="buttonDoneStarted" onClick={(e) => onDone(item.id)}>{FaRegClock()}</button>) 
+        :(<button id="buttonDone" onClick={(e) => onDone(item.id)}>{FaPlay()}</button>)
+        }
+
+        <button id="buttonDelete" onClick={(e) => onDelete(item.id)}>{FaTrash()}</button>
         </div>)
 
     }
+{/* ------------------Working-------------------- */}
 
     return <div className='taskToDo'>{isEditar ? <FormEditar/>: <TaskElement/>}
     </div>
