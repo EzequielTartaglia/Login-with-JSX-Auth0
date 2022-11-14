@@ -11,6 +11,7 @@
     top: 0;
     width: 100%;
     z-index: 1000005;
+    
   }
   
   nav ul{
@@ -33,6 +34,8 @@
     align-content: center;
     height: 50px;
     max-height: 140px;
+    transition: all 0.25s;
+
   
   }
   .site-title img:hover{
@@ -40,7 +43,7 @@
   }
   .nav  li{
     border-radius: 6px;
-  
+    transition: all 0.25s;
   }
   .nav li.active{
     background: #555;
@@ -92,7 +95,8 @@
     border: none;
     font-weight: 700;
     font-size: 8px;
-  
+    transition: all 0.25s;
+
   }
   .loginButton:hover, .logoutButton:hover{
     cursor: pointer;

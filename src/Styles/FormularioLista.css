@@ -28,11 +28,12 @@
     font-weight: bold;
     background-color: black;
     color: aliceblue;
- box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.555);
- 
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.555);
+    transition: all 0.4s;
+
 }
 
-.btnCreateTask:hover,#buttonEdit:hover{
+.btnCreateTask:hover,#buttonEdit:hover,#button{
  background-color: aquamarine;
  color: rgb(5, 5, 5);
  padding: 10px 20px;
@@ -77,6 +78,7 @@ cursor: pointer;
     font-weight: bold;
     box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.555);
     border-radius: 6px;
+    transition: all 0.4s;
 
 }
 #taskUpdateForm button:hover{
@@ -89,7 +91,7 @@ cursor: pointer;
     border-radius: 6px;
 
 }
-#buttonDelete,#buttonDone,#buttonDoneStarted{
+#buttonDelete,#buttonDone,#buttonDoneStarted,#buttonDoneFinish,#buttonDoneFinished,#buttonDoneReply{
     border: solid 0.1px rgb(8, 8, 8);
     background-color: black;
     color: aliceblue;
@@ -97,7 +99,8 @@ cursor: pointer;
     font-weight: bold;
     box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.555);
     border-radius: 6px;
-    
+    transition: all 0.4s;
+
 }
 #buttonEdit{       
     background-color: rgb(243, 243, 243);
@@ -111,9 +114,17 @@ cursor: pointer;
     background-color: rgb(243, 243, 243);
     box-shadow: none;
 
-
 }
 
+#buttonDoneFinish{
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+#buttonDoneFinish:hover{
+    background-color: rgb(7, 211, 58);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
 #buttonDelete{
     background-color: rgb(190, 0, 0);
     color: rgb(255, 255, 255);
@@ -133,20 +144,50 @@ cursor: pointer;
    
 }
 #buttonDone:hover{
-    background-color: rgb(7, 211, 58);
+    background-color: aquamarine;
     color: black;
     cursor: pointer;
 
 }
 #buttonDoneStarted{
-    background-color: rgb(248, 235, 2);
+    background-color: rgb(235, 223, 4);
     color: black;
     cursor: pointer;
     font-size: 13px;
 }
 #buttonDoneStarted:hover{
-    background-color: rgb(253, 247, 131);
+    background-color: rgb(245, 233, 6);
     color: black;
     cursor: pointer;
 
+}
+.containerDoneStarted{
+    background-color: rgb(235, 223, 4);
+    border-radius: 6px;
+}
+.containerDoneFinished{
+    background-color: rgb(110, 110, 110);
+    border-radius: 6px;
+    color: #999;
+}
+#buttonDoneFinished{
+    background-color: rgb(7, 211, 58);
+    color: black;
+    cursor: pointer;
+}
+#buttonDoneFinished:hover{
+    background-color: rgb(5, 223, 59);
+    color: black;
+    cursor: pointer;
+}
+
+#buttonDoneReply{
+    background-color: rgb(110, 110, 110);
+    border-radius: 6px;
+    color: #888;
+}
+#buttonDoneReply:hover{
+    background-color: rgb(122, 122, 122);
+    border-radius: 6px;
+    color: #999;
 }

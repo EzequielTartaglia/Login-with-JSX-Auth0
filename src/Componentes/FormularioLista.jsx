@@ -30,7 +30,9 @@ export function FormularioLista() {
         if(title) {
             const newTask = {id: crypto.randomUUID(),
             title: title,
-            completed: false}
+            started: false,
+            checked: false
+        }
             //Copiar la lista y setearlo
             setLista([...lista,newTask])
             //Agregarlo al LocalStorage
@@ -68,14 +70,27 @@ export function FormularioLista() {
         copiedList[item] = {
             id: copiedList[item].id,
             title: copiedList[item].title,
-            completed: !copiedList[item].completed
+            started: !copiedList[item].started,
+            checked: false
+
         }
         localStorage.setItem("Lista almacenada",JSON.stringify(copiedList))
         setLista(copiedList)
 
         
     }
-
+    function handleDoneCheck(id){
+        const copiedList = [...lista]
+        const item = lista.findIndex(item => item.id === id)
+        copiedList[item] = {
+            id: copiedList[item].id,
+            title: copiedList[item].title,
+            started: true,
+            checked: !copiedList[item].checked
+        }
+        localStorage.setItem("Lista almacenada",JSON.stringify(copiedList))
+        setLista(copiedList)
+    }
     return <>
     <div className="container">
         <form className="form" onSubmit={handleSubmit}>
@@ -101,7 +116,9 @@ export function FormularioLista() {
                 onUpdate={handleClickUpdate} 
                 onDelete={handleDelete} 
                 onDone={handleDone}
-                completed={item.completed}
+                onDoneCheck = {handleDoneCheck}
+                started={item.started}
+                checked= {item.checked}
                 />
             ))}
         </div>

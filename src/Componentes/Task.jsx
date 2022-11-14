@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import '../Styles/FormularioLista.css'
-import { FaRegClock,FaPlay,FaEdit,FaTrash } from "react-icons/fa";
+import { FaCheckCircle,FaPause,FaPlay,FaEdit,FaTrash, FaReply } from "react-icons/fa";
 
-export default function Task({ item, onUpdate, onDelete, onDone, completed }){
+export default function Task({ item, onUpdate, onDelete, onDone, onDoneCheck, started, checked }){
     
     const [isEditar, setIsEditar] = useState(false)
     
@@ -37,26 +37,54 @@ export default function Task({ item, onUpdate, onDelete, onDone, completed }){
         </form>
     }
 
+    //Funcion para el elemento de tarea empezada
+    function TaskStarted(){
+        return <div id='taskInformation' className='containerDoneStarted'>
+        <span className='taskTitle'>{item.title}</span>
+        <button id="buttonDoneStarted" onClick={(e) => onDone(item.id)}>{FaPause()}</button>
+                <button id="buttonDoneFinish" onClick={(e) => onDoneCheck(item.id)}>{FaCheckCircle()}</button>
+        </div>
+            }
+    
+    //Funcion para el elemento de tarea completada
+    function TaskFinished(){
+        return <div id='taskInformation' className='containerDoneFinished'>
+        <span className='taskTitle'>
+             <del>{item.title}</del> </span>
+             <button id="buttonDoneReply" onClick={(e) => onDone(item.id)}>{FaReply()}</button>
+        <button id="buttonDoneFinished" onClick={(e) => onDoneCheck(item.id)}>{FaCheckCircle()}</button>
+        </div>
+        
+    }  
+
+    //Funcion tarea por hacer
+    function TaskToDo(){
+        return <div id='taskInformation'>
+        <button id='buttonEdit' onClick={() => setIsEditar(true)}>{FaEdit()}</button>
+        <span className='taskTitle'>{item.title} </span>
+        <button id="buttonDone" onClick={(e) => onDone(item.id)}>{FaPlay()}</button> 
+        <button id="buttonDelete" onClick={(e) => onDelete(item.id)}>{FaTrash()}</button>
+        </div>
+    }
+    
     //Estado default para cada task(tarea)
     function TaskElement(){
 
-        return (<div id='taskInformation'>
-        <button id='buttonEdit' onClick={() => setIsEditar(true)}>{FaEdit()}</button>
-        <span className='taskTitle'>{item.title} </span>
-
-
-        {completed 
-        ?(<button id="buttonDoneStarted" onClick={(e) => onDone(item.id)}>{FaRegClock()}</button>) 
-        :(<button id="buttonDone" onClick={(e) => onDone(item.id)}>{FaPlay()}</button>)
+        return (<>
+        {started 
+        //Tarea iniciada
+        ? (checked ? <TaskFinished/> : <TaskStarted/>)
+        //Tarea sin empezar
+        :(<TaskToDo />)
         }
-
-        <button id="buttonDelete" onClick={(e) => onDelete(item.id)}>{FaTrash()}</button>
-        </div>)
+        </>)
 
     }
-
+  
+    
     return <div className='taskToDo'>{isEditar ? <FormEditar/>: <TaskElement/>}
     </div>
 
         
 }
+
