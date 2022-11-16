@@ -133,7 +133,7 @@ export function FormularioLista() {
             onClick={handleSubmit} 
             className="btnCreateTask" 
             type="submit" 
-            value="Crear nueva tarea" />
+            value="Agregar tarea" />
 
         </form>
 
@@ -151,7 +151,7 @@ export function FormularioLista() {
         <div className="tasksContainer">
             {/* Recorrido del array (results
                 viene desde el localStorage) */}
-                
+
             {results.map(item => (
                 <Task 
                 key={item.id} 
