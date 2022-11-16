@@ -53,6 +53,8 @@
     color: rgb(0, 0, 0);
     background: rgb(223, 223, 223);
     box-shadow: 0 2px 3px 0 rgba(15, 218, 117, 0.555);
+    border: solid .3px aquamarine;
+
    }
   
   nav a{
