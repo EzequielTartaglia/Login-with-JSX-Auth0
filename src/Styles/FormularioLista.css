@@ -10,8 +10,40 @@
     display: flex;
     gap: 5px;
     margin: auto;
+    width: 80%;
+
 
 }
+.searchBar{
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 80%;
+    border: solid 0.1px rgb(8, 8, 8);
+    padding: 6px 0px;
+    font-weight: bold;
+    border-radius: 6px;
+    border: none;
+    transition: all 0.4s;
+    background-color: rgb(255, 255, 255);
+
+}
+.searchInput input{
+    padding: 5px;
+    width: 90%;   
+    background-color: rgb(243, 243, 243);
+    border: 1.5px solid rgba(34, 36, 38, 0.15);
+    border-radius: 6px;
+
+
+
+}
+.searchIcon{
+    width: 10%;
+    padding: 5px;
+    font-size: 12px;
+}
+
 
 .taskInput{
     margin: auto;
@@ -19,6 +51,7 @@
     border-radius: 6px;
     border: solid 1px #999;
     width: 100%;
+    
 }
 
 .btnCreateTask{
@@ -30,6 +63,7 @@
     color: aliceblue;
     box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.555);
     transition: all 0.4s;
+    
 
 }
 
@@ -67,6 +101,7 @@ cursor: pointer;
     flex-direction: row;
     align-items: center;
     gap: 5px;
+    padding: 0 5px;
     
 
 }
@@ -164,6 +199,8 @@ cursor: pointer;
 .containerDoneStarted{
     background-color: rgb(235, 223, 4);
     border-radius: 6px;
+    transition: all 0.4s;
+
 }
 .containerDoneFinished{
     background-color: rgb(110, 110, 110);

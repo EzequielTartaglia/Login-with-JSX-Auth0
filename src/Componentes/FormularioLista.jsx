@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import Task from "./Task"
 import '../Styles/FormularioLista.css'
+import { FaSearch } from "react-icons/fa"
 
 export function FormularioLista() {
     
@@ -91,8 +92,11 @@ export function FormularioLista() {
         localStorage.setItem("Lista almacenada",JSON.stringify(copiedList))
         setLista(copiedList)
     }
+
     return <>
+    
     <div className="container">
+
         <form className="form" onSubmit={handleSubmit}>
 
             <input 
@@ -107,6 +111,14 @@ export function FormularioLista() {
             value="Crear nueva tarea" />
 
         </form>
+
+        <div className="searchBar">
+            <div className="searchInput">
+                <input type="text" placeholder="Busca una tarea..." className="prompt"/>
+                <i className="searchIcon">{FaSearch()}</i>  
+            </div>
+        </div>
+
         <div className="tasksContainer">
             {/* Recorrido del array */}
             {lista.map(item => (
