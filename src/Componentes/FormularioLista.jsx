@@ -6,8 +6,28 @@ import { FaSearch } from "react-icons/fa"
 export function FormularioLista() {
     
     //Hook para hacer cambio de estado
-    const [title, setTitle] = useState('')
-    const [lista,setLista] = useState([])
+        const [title, setTitle] = useState('')
+        const [lista,setLista] = useState([])
+    
+    //Funcion de busqueda
+        const [search, setSearch]  = useState('')
+        
+        //Declarar una constante con la lista de datos
+        const dataBase = JSON.parse(localStorage.getItem("Lista almacenada"))
+        
+        //Funcion para buscar
+        function searcher(e){
+            setSearch(e.target.value)
+        }
+        //Metodo para filtrar(lo buscado)
+        let results = []
+        if(!search){
+            results = dataBase
+        }
+        else{
+            results=  dataBase.filter((dataItem) => dataItem.title.toLowerCase().includes(search.toLocaleLowerCase()))
+            
+        }
 
     useEffect(() =>{
       if(localStorage.getItem("Lista almacenada")){
@@ -17,15 +37,15 @@ export function FormularioLista() {
     },[])
 
     //Recibir informacion del input text
-    function handleChange(e){
+        function handleChange(e){
         //Traer los caracteres escritos(valor)
         const value = e.target.value
         //Setearlo
         setTitle(value)
-    }
+        }
   
     //Funcion del submit
-    function handleSubmit(e){
+        function handleSubmit(e){
         e.preventDefault()
 
         if(title) {
@@ -42,10 +62,10 @@ export function FormularioLista() {
             setTitle("")
         }
 
-    }
+        }
 
     //Funcion para procesar el cambio de valores entre antiguo valor y editado
-    function handleClickUpdate(id, value){
+        function handleClickUpdate(id, value){
 
         const copiedList = [...lista]
         const item = copiedList.find(item => item.id === id)
@@ -54,45 +74,50 @@ export function FormularioLista() {
         localStorage.setItem("Lista almacenada",JSON.stringify([...copiedList]))
         setLista(copiedList)
         
-    }
+        }
 
     //Funcion para eliminar task(tarea)
-    function handleDelete(id){
-        //Encontrar ese id
-        const deleted = lista.filter(item => item.id !== id)
-        setLista(deleted)
-        //Borrar en localStorage
-        localStorage.setItem("Lista almacenada",JSON.stringify(deleted))
-    }
-
-    function handleDone(id){
-        const copiedList = [...lista]
-        const item = lista.findIndex(item => item.id === id)
-        copiedList[item] = {
-            id: copiedList[item].id,
-            title: copiedList[item].title,
-            started: !copiedList[item].started,
-            checked: false
-
+        function handleDelete(id){
+            //Encontrar ese id
+            const deleted = lista.filter(item => item.id !== id)
+            setLista(deleted)
+            //Borrar en localStorage
+            localStorage.setItem("Lista almacenada",JSON.stringify(deleted))
         }
-        localStorage.setItem("Lista almacenada",JSON.stringify(copiedList))
-        setLista(copiedList)
 
-        
-    }
-    function handleDoneCheck(id){
-        const copiedList = [...lista]
-        const item = lista.findIndex(item => item.id === id)
-        copiedList[item] = {
-            id: copiedList[item].id,
-            title: copiedList[item].title,
-            started: true,
-            checked: !copiedList[item].checked
+    //Funcion para iniciar task(tarea)
+        function handleDone(id){
+            const copiedList = [...lista]
+            const item = lista.findIndex(item => item.id === id)
+            copiedList[item] = {
+                id: copiedList[item].id,
+                title: copiedList[item].title,
+                started: !copiedList[item].started,
+                checked: false
+
+            }
+            localStorage.setItem("Lista almacenada",JSON.stringify(copiedList))
+            setLista(copiedList)
+
+            
         }
-        localStorage.setItem("Lista almacenada",JSON.stringify(copiedList))
-        setLista(copiedList)
-    }
+    
+    //Funcion para poner check una task(tarea)
+        function handleDoneCheck(id){
+            const copiedList = [...lista]
+            const item = lista.findIndex(item => item.id === id)
+            copiedList[item] = {
+                id: copiedList[item].id,
+                title: copiedList[item].title,
+                started: true,
+                checked: !copiedList[item].checked
+            }
+            localStorage.setItem("Lista almacenada",JSON.stringify(copiedList))
+            setLista(copiedList)
+        }
 
+
+    //Componente final
     return <>
     
     <div className="container">
@@ -114,14 +139,20 @@ export function FormularioLista() {
 
         <div className="searchBar">
             <div className="searchInput">
-                <input type="text" placeholder="Busca una tarea..." className="prompt"/>
+                <input type="text" 
+                value={search}
+                onChange={searcher}
+                placeholder="Busca una tarea..." className="prompt"
+                />
                 <i className="searchIcon">{FaSearch()}</i>  
             </div>
         </div>
 
         <div className="tasksContainer">
-            {/* Recorrido del array */}
-            {lista.map(item => (
+            {/* Recorrido del array (results
+                viene desde el localStorage) */}
+                
+            {results.map(item => (
                 <Task 
                 key={item.id} 
                 item={item} 
