@@ -22,11 +22,12 @@ export default function NavegadorBar(){
             </ul>
             <ul>
              {/* Importar perfil modificado */}
-             <PerfilNav></PerfilNav>
-
+             
+             <PerfilNav/>
             {/* Si esta autorizado muestra Logout(button)sino Login*/}
             {isAuthenticated       
             ?<ul className="sessionInfo">
+                
                 <li >{user.name}</li> 
                 <li ><CustomLink to="/"><LogoutButton/></CustomLink></li> 
                 <li ><em><u>Ultimo inicio:</u> {user.updated_at}</em></li> 
