@@ -27,6 +27,7 @@ export default function NavegadorBar(){
         </>
 }
 
+//Componentes adicionales
 export function CustomLink({to, children, ...props}) {
 
     const resolvedPath = useResolvedPath(to)
@@ -132,7 +133,9 @@ return <nav className="nav">
 export  const NavLogout = () => {
 
 return <nav className="nav">
-     <Link to="/inicio" className="site-title"><img src={logo} alt="" /></Link>
+     
+     {/* Logo desabilitada la funcion de desplegar menu */}
+     <Link  className="site-title"><img src={logo} alt="" /></Link>
      
 
      <ul>
