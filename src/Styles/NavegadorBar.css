@@ -69,7 +69,9 @@
   .nav-custom{
     flex-wrap: wrap;
     padding: 4px;
+    object-fit: contain;
   }
+
   .img-nav-custom,.loginButton, .logoutButton {
     align-items: center;
     align-content: center;

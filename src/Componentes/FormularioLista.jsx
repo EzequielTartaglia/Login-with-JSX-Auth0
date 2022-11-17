@@ -139,7 +139,7 @@ export function FormularioLista() {
 
         <div className="searchBar">
             <div className="searchInput">
-                <input type="text" 
+                <input type="search" 
                 value={search}
                 onChange={searcher}
                 placeholder="Busca una tarea..." className="prompt"
