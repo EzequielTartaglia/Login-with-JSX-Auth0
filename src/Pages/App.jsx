@@ -11,7 +11,8 @@ import { Route, Routes } from 'react-router-dom';
 import { Perfil } from '../Componentes/Perfil';
 import NavegadorBar from '../Componentes/NavegadorBar'
 
-function App() {
+
+export default function App() {
 
   
    //Efecto de carga
@@ -43,4 +44,4 @@ function App() {
   );
 }
 
-export default App;
+

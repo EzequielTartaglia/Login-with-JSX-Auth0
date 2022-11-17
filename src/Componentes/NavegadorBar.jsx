@@ -28,7 +28,7 @@ export default function NavegadorBar(){
 }
 
 //Componentes adicionales
-export function CustomLink({to, children, ...props}) {
+export const CustomLink = ({to, children, ...props}) => {
 
     const resolvedPath = useResolvedPath(to)
     const isActive = useMatch({path: resolvedPath.pathname})
