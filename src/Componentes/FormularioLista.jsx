@@ -83,52 +83,9 @@ export function FormularioLista() {
 
                     </div>
                    
-
-                    
-        {/* Tabla con tareas por hacer */}
-        <div className="tasksContainerToDo">
-            {/* Recorrido del array (results
-                viene desde el localStorage) */}
-            {taskTableRowsFilter(false,false) <1 || showToDo===false
-            ?<></>
-            :<>
-            <h2>Por hacer</h2>
-           
-            {showToDo &&(
-                taskTableRowsFilter(false,false))}
-            </>}
-        </div>
-        
-        {/* Tabla con tareas iniciadas */}
-        <div className="tasksContainerStarted">
-            {/* Recorrido del array (results
-                viene desde el localStorage) */}
-            {taskTableRowsFilter(true,false) <1 || showStarted===false
-            ?<></>
-            :<> <h2>En proceso</h2>
-            {showStarted &&(
-                taskTableRowsFilter(true,false))}</>
-            }
-            
-
-        </div>
-
-        {/* Tabla con tareas hechas */}
-        <div className="tasksContainerDone">
-            {/* Recorrido del array (results
-                viene desde el localStorage) */}
-            {taskTableRowsFilter(true,true) <1 || showCompleted===false
-            ?<></>
-            : <><h2>Finalizadas</h2>
-            {showCompleted &&(
-                taskTableRowsFilter(true,true))}</>
-            }
-            
-            
-
-        </div>
                 </>
     }
+
 
     //Recibir informacion del input text
         function handleChange(e){
@@ -263,7 +220,48 @@ export function FormularioLista() {
     <FilterCategories/>
 
 
+    {/* Tabla con tareas por hacer */}
+    <div className="tasksContainerToDo">
+            {/* Recorrido del array (results
+                viene desde el localStorage) */}
+            {taskTableRowsFilter(false,false) <1 || showToDo===false
+            ?<></>
+            :<>
+            <h2>Por hacer</h2>
+           
+            {showToDo &&(
+                taskTableRowsFilter(false,false))}
+            </>}
+        </div>
+        
+        {/* Tabla con tareas iniciadas */}
+        <div className="tasksContainerStarted">
+            {/* Recorrido del array (results
+                viene desde el localStorage) */}
+            {taskTableRowsFilter(true,false) <1 || showStarted===false
+            ?<></>
+            :<> <h2>En proceso</h2>
+            {showStarted &&(
+                taskTableRowsFilter(true,false))}</>
+            }
+            
 
+        </div>
+
+        {/* Tabla con tareas hechas */}
+        <div className="tasksContainerDone">
+            {/* Recorrido del array (results
+                viene desde el localStorage) */}
+            {taskTableRowsFilter(true,true) <1 || showCompleted===false
+            ?<></>
+            : <><h2>Finalizadas</h2>
+            {showCompleted &&(
+                taskTableRowsFilter(true,true))}</>
+            }
+            
+            
+
+        </div>
 
     </div>
     </>
