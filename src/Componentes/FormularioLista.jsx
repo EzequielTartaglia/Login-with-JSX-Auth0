@@ -70,6 +70,9 @@ export function FormularioLista() {
 
                 return <>
                 <div className="filterSettings">
+                
+                {/* Mostrar todas las categorias si no hay ningun filtro activado (al iniciar sesion) */}
+                {showToDo===false && showStarted===false && showCompleted===false ? (filterAll()):<></>}
 
                 
                     <button value="" onClick={e=> filterAll(e)}>Mostrar todo</button>
@@ -218,7 +221,6 @@ export function FormularioLista() {
         
 
     <FilterCategories/>
-
 
     {/* Tabla con tareas por hacer */}
     <div className="tasksContainerToDo">
