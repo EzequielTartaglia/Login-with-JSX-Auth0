@@ -3,45 +3,109 @@ import '../Styles/App.css';
 import'../Styles/NavegadorBar.css';
 //Paginas para enlazar (SPA)
 import Inicio from './Inicio';
-import TareasCompletas from './TareasCompletas';
+import GestorDeTareas from './GestorDeTareas';
 import TareasIncompletas from './TareasIncompletas';
 import { Route, Routes } from 'react-router-dom';
+import { useAuth0 } from "@auth0/auth0-react"
 
 //Componentes para funcion login
-import { Perfil } from '../Componentes/Perfil';
 import NavegadorBar from '../Componentes/NavegadorBar'
 
 
 export default function App() {
-
   
-   //Efecto de carga
+  const {isAuthenticated} = useAuth0()
+
+  function timerLog(){
+  setTimeout(function(){
+    alert("¡Inicio de sesion exitoso!");
+    }, 1000);
+  
+  }
+  //Efecto de carga
   /*   const {isLoading} = useAuth0()
   if(isLoading) return <h1>Cargando...</h1> */
 
-  return (
+  return (<>
+    
     <div className="App">
-
+      
+      {/* Barra de navegacion */}
       <>
       <NavegadorBar />
-      <div>
-        <Routes>
-        <Route path="/inicio" element={<Inicio />} />
-        <Route path="/completadas" element={<TareasCompletas />} />
-        <Route path="/incompletas" element={<TareasIncompletas />} />
-        </Routes>
-      </div>
+
       </>
 
-      <h1>Aplicación </h1>
+      <h1 className='titleApp'>Making time </h1>
+      <h2 className='subTitleApp'>Gestor de tareas </h2>
       
-      <Perfil/>
+      <main>
+      <QuoteHeader/>
+      <div>
+        {/* Agregar materiales especiales por la route */}
+        <Routes>
+          {/* Componentes de la pagina "Inicio" */}
+        <Route path="/inicio" element={<Inicio />} />
+          {/* Componentes de la pagina "Gestor de tareas" */}
+        <Route path="/gestor-de-tareas" element={<GestorDeTareas />} />
+          {/* Componentes de la pagina "TareasIncompletas" */}
+        <Route path="/incompletas" element={<TareasIncompletas />} />
+        </Routes>
+        {/* Fin de componentes agregados por la route */}
+      </div>
+      
+      {isAuthenticated 
+
+      /* Si esta logeado */
+      ? <>{timerLog()}</> 
+      /* Si no esta logeado */
+      : <><NotLogInInstructions/></>
+      } 
       
       
+      </main>
+      <footer id='footerApp'>
+        <ul id='footerCredits'>
+        <li>Making time&#174; </li>|
+        <li>Desarrollado por <span class="credito"><a href="https://www.linkedin.com/in/ezequieltartaglia/" target="blank">Ezequiel M. Tartaglia</a></span> </li>|
+        <li> Todos los derechos reservados 2022&copy;</li>
+        </ul>
+         
+
+      </footer>
       
     </div>
-
+    </>
   );
 }
 
 
+export function QuoteHeader() {
+  return(
+    
+    
+    <quote><em className='quote'>"La gestión del tiempo debe centrarse en decidir qué tareas debemos hacer y elegir lo que no debemos hacer. ¿Cómo ser más productivo? Comience por priorizar las tareas y asignarles franjas horarias específicas."</em>
+  </quote>)
+}
+export function NotLogInInstructions(){
+  //Datos del usuario
+     
+  return(
+      
+       <>
+       <p>En <b className='titleBolder'>Making time</b> podras gestionar como utilizar tu tiempo de manera eficaz. <b>Inicia sesion</b> para poder <b>desbloquear funciones</b> como:</p>
+       <ul className='listApp'>
+         <li>Agregar tareas</li>
+         <li>Buscarlas en tu lista</li>
+         <li>Inicializarlas</li>
+         <li>Almacenarlas</li>
+         <li>Concluirlas</li>
+         <li>Eliminarlas</li>
+         </ul>
+         </>
+ 
+  ) 
+      
+  
+ }
+ 

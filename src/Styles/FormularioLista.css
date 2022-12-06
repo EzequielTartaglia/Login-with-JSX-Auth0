@@ -85,7 +85,7 @@ input[type="search"]{
 
 }
 
-.btnCreateTask:hover,#buttonEdit:hover,#button{
+.btnCreateTask:hover,#buttonEdit:hover,#button,.filterSettings button:hover{
  background-color: aquamarine;
  color: rgb(5, 5, 5);
  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.555);
@@ -94,7 +94,7 @@ cursor: pointer;
 }
 
 
-.tasksContainer{
+.tasksContainer,.tasksContainerToDo,.tasksContainerStarted,.tasksContainerDone{
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -116,6 +116,17 @@ cursor: pointer;
  padding: 10px;
 }
 
+.filterSettings{
+    margin: 2px;
+    width:60%;
+    margin: auto;
+    
+}
+.filterSettings button{
+    margin: 2px;
+    width: 40%;
+    font-size: 12px;
+}
 #taskUpdateForm, #taskInformation{
     display: flex;
     flex-direction: row;
@@ -146,7 +157,7 @@ cursor: pointer;
     border-radius: 6px;
 
 }
-#buttonDelete,#buttonDone,#buttonDoneStarted,#buttonDoneFinish,#buttonDoneFinished,#buttonDoneReply{
+#buttonDelete,#buttonDone,#buttonDoneStarted,#buttonDoneFinish,#buttonDoneFinished,#buttonDoneReply,.filterSettings button{
     border: solid 0.1px rgb(8, 8, 8);
     background-color: black;
     color: aliceblue;
@@ -249,4 +260,26 @@ cursor: pointer;
     color: #999;
     cursor: pointer;
 
+}
+
+@media (max-width: 500px)  {
+    .form{
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: 80%;    
+    }
+    .btnCreateTask{
+        margin: auto;
+        font-size: 10px;
+        width: 80px;
+    }
+    .filterSettings button{
+        display: flex;
+        flex-direction: row;
+        margin: auto;
+        margin-top: 5px;
+        width: 70px;
+        font-size: 0.5rem;
+    }
 }

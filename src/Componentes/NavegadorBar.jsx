@@ -100,7 +100,7 @@ return <nav className="nav">
         
         <ul className="principalMenu">
         <CustomLink to="/inicio">[Inicio]</CustomLink> 
-        <CustomLink to="/completadas">[Completadas]</CustomLink>
+        <CustomLink to="/gestor-de-tareas">[Gestor de tareas]</CustomLink>
         <CustomLink to="/incompletas">[Por hacer]</CustomLink>
         </ul>
         <ul>

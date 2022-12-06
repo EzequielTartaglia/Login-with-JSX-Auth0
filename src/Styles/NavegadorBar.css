@@ -17,6 +17,7 @@
   nav ul{
     padding: 0;
     margin: 0;
+    margin-left: -50px;
     list-style: none;
     gap: 2rem;
     display: flex;
@@ -81,6 +82,9 @@
     box-shadow: 0 2px 3px 0 rgba(15, 218, 117, 0.555);
     border: solid .3px aquamarine;
 
+  }
+  .img-nav-custom{
+    margin-right: 30.5px;
   }
   .p-nav-custom{
     font-size: 10px;
@@ -165,6 +169,10 @@
 
 
     }
+    nav ul{
+      margin-left: 0;
+
+    }
     .site-title{
       height: 25px;
       margin: auto;
@@ -215,5 +223,6 @@
     .img-nav-custom{
       height: 35px;
       border: solid .3px aquamarine;
+      margin-left: 0;
     }
   }
