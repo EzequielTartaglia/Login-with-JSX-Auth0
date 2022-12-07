@@ -44,7 +44,8 @@ export default function Task({ item, onUpdate, onDelete, onDone, onDoneCheck, st
         <button id="buttonDoneStarted" onClick={(e) => onDone(item.id)}>{FaPause()}</button>
                 <button id="buttonDoneFinish" onClick={(e) => onDoneCheck(item.id)}>{FaCheckCircle()}</button>
         </div>
-            }
+        
+    }
     
     //Funcion para el elemento de tarea completada
     function TaskFinished(){
