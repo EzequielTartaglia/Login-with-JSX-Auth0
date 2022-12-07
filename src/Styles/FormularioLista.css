@@ -274,10 +274,11 @@ cursor: pointer;
         font-size: 10px;
         width: 80px;
     }
-    .filterSettings button{
-        display: flex;
-        flex-direction: row;
+    .filterSettings{
+        flex-wrap: wrap;
         margin: auto;
+    }
+    .filterSettings button{
         margin-top: 5px;
         width: 70px;
         font-size: 0.5rem;
