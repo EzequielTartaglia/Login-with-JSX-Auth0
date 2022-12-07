@@ -80,6 +80,7 @@ export default function App() {
         pauseOnHover
         theme="dark"
         />{timerLog()}</> 
+        
       /* Si no esta logeado */
       : <><NotLogInInstructions/></>
       } 
