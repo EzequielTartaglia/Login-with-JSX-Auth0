@@ -15,7 +15,7 @@ const dominio = process.env.REACT_APP_AUTH0_DOMAIN //Cambia depende el https://m
 const idCliente = process.env.REACT_APP_AUTH0_CLIENT_ID //Cambia depende el https://manage.auth0.com/
 
 root.render(
-  <React.StrictMode>
+  
    
    <BrowserRouter>
 
@@ -31,7 +31,7 @@ root.render(
     
     </Auth0Provider>
     </BrowserRouter>
-  </React.StrictMode>
+  
     
 );
 

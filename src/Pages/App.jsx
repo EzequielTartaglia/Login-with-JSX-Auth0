@@ -6,8 +6,9 @@ import Inicio from './Inicio';
 import GestorDeTareas from './GestorDeTareas';
 import TareasIncompletas from './TareasIncompletas';
 import { Route, Routes } from 'react-router-dom';
-import { useAuth0 } from "@auth0/auth0-react"
-
+import { useAuth0 } from "@auth0/auth0-react";
+import {ToastContainer,toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 //Componentes para funcion login
 import NavegadorBar from '../Componentes/NavegadorBar'
 
@@ -18,7 +19,16 @@ export default function App() {
 
   function timerLog(){
   setTimeout(function(){
-    alert("¡Inicio de sesion exitoso!");
+    toast.success(' ¡Inicio de sesion, exitoso!', {
+      position: "bottom-center",
+      autoClose: 1000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
     }, 1000);
   
   }
@@ -35,10 +45,9 @@ export default function App() {
       <NavegadorBar />
 
       </>
-
+      
       <h1 className='titleApp'>Making time </h1>
       <h2 className='subTitleApp'>Gestor de tareas </h2>
-      
       <main>
       <QuoteHeader/>
       <div>
@@ -57,7 +66,20 @@ export default function App() {
       {isAuthenticated 
 
       /* Si esta logeado */
-      ? <>{timerLog()}</> 
+      ? <>
+      {/* Notificacion de inicio de sesion con exito */}      
+        <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        />{timerLog()}</> 
       /* Si no esta logeado */
       : <><NotLogInInstructions/></>
       } 
