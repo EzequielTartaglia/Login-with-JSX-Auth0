@@ -10,6 +10,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import {ToastContainer,toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 //Componentes para funcion login
+import Particle from '../Componentes/Particles';
 import NavegadorBar from '../Componentes/NavegadorBar'
 
 
@@ -39,7 +40,7 @@ export default function App() {
   return (<>
     
     <div className="App">
-      
+      <Particle/>
       {/* Barra de navegacion */}
       <>
       <NavegadorBar />
