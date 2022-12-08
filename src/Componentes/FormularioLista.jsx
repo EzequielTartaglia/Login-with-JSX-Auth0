@@ -34,7 +34,7 @@ export function FormularioLista() {
         }
 
     useEffect(() =>{
-      if(localStorage.getItem("Lista almacenada")){
+      if(localStorage.getItem("Lista almacenada")!== null){
         const savedList = JSON.parse(localStorage.getItem("Lista almacenada"))
         setLista(savedList)
       }

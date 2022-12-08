@@ -118,7 +118,7 @@ return <nav className="nav">
             {/* Informacion al almacenamiento local */}
             {localStorage.setItem('User', user.name)} 
             {localStorage.setItem('User img', user.picture)}
-            {localStorage.setItem('Last Updated', user.updated_at)}   
+            {localStorage.setItem('Last Updated', user.updated_at)} 
         </ul> 
 
         
