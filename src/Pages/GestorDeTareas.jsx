@@ -1,7 +1,6 @@
 //Importaciones
 import { useAuth0 } from "@auth0/auth0-react"
 import { FormularioLista } from '../Componentes/FormularioLista';
-import { Perfil } from '../Componentes/Perfil';
 
 /* Elementos/componentes unicos que aparecen en esta pagina */
 export default function ListaPage() {
