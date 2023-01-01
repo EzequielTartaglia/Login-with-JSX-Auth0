@@ -96,12 +96,11 @@ export  const NavLogin = () => {
         const {user} = useAuth0()
 
 return <nav className="nav">
-        <Link to="/inicio" className="site-title"><img src={logo} alt="" /></Link>
+        <Link to="/instrucciones" className="site-title"><img src={logo} alt="" /></Link>
         
         <ul className="principalMenu">
-        <CustomLink to="/inicio">[Inicio]</CustomLink> 
-        <CustomLink to="/gestor-de-tareas">[Gestor de tareas]</CustomLink>
-        <CustomLink to="/incompletas">[Por hacer]</CustomLink>
+        <CustomLink to="/instrucciones">Instrucciones</CustomLink> 
+        <CustomLink to="/gestor-de-tareas">Gestor de tareas</CustomLink>
         </ul>
         <ul>
          {/* Importar perfil modificado */}

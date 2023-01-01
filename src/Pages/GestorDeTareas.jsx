@@ -8,7 +8,7 @@ export default function ListaPage() {
     const {user, isAuthenticated} = useAuth0()
 
     return <>
-    <h1>[Gestor de tareas]</h1>
+    <h1>Gestor de tareas</h1>
     {isAuthenticated 
 
     /* Si esta logeado */

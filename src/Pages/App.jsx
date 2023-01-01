@@ -2,9 +2,8 @@
 import '../Styles/App.css';
 import'../Styles/NavegadorBar.css';
 //Paginas para enlazar (SPA)
-import Inicio from './Inicio';
+import Instrucciones from './Instrucciones';
 import GestorDeTareas from './GestorDeTareas';
-import TareasIncompletas from './TareasIncompletas';
 import { Route, Routes } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
 import {ToastContainer,toast} from 'react-toastify';
@@ -92,7 +91,7 @@ export default function App() {
             });
           }, 3000);
         }
-      
+  
     })}, 3000);
     
   }
@@ -136,11 +135,9 @@ export default function App() {
         {/* Agregar materiales especiales por la route */}
         <Routes>
           {/* Componentes de la pagina "Inicio" */}
-        <Route path="/inicio" element={<Inicio />} />
+        <Route path="/instrucciones" element={<Instrucciones />} />
           {/* Componentes de la pagina "Gestor de tareas" */}
         <Route path="/gestor-de-tareas" element={<GestorDeTareas />} />
-          {/* Componentes de la pagina "TareasIncompletas" */}
-        <Route path="/incompletas" element={<TareasIncompletas />} />
         </Routes>
         {/* Fin de componentes agregados por la route */}
       </div>
