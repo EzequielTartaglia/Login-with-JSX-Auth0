@@ -17,7 +17,11 @@ export default function ListaPage() {
     <div className='LoggedList'>
     <FormularioLista/>
     </div>
-    <Perfil/>
+    
+    {/* 
+    Componente para mostrar todas las opciones de usuario del auth0
+    <Perfil/> 
+    */}
     </div> 
 
     /* Si no esta logeado */
