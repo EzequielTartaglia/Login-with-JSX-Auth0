@@ -9,7 +9,7 @@
 
 ## Funciones
 
-[ X ] Crear registros: Permitir a los usuarios agregar nuevos registros a la base de datos, como por ejemplo agregar un nuevo producto o cliente.
+[] Crear registros: Permitir a los usuarios agregar nuevos registros a la base de datos, como por ejemplo agregar un nuevo producto o cliente.
 
 Leer registros: Permitir a los usuarios ver los registros existentes en la base de datos, como por ejemplo ver una lista de productos o clientes.
 
