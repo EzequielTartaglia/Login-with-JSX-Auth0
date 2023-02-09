@@ -1,5 +1,5 @@
 
-# CRUD App React.JS con el fin de mostrar como hacer un inicio de sesion vinculado a google account.
+# CRUD App React.JS : Login con autentificacion de google account y tambien una aplicacion todo con almacenamiento cache.
 
 ## Informacion relevante
 
