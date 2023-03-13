@@ -22,3 +22,8 @@
 • Autenticación con Auth0: Proporcionar una autenticación segura a través de Auth0, que permite a los usuarios iniciar sesión con sus credenciales o con otras redes sociales.
 
 • Diferentes UI con opciones cuando el usuario esta logeado y cuando no lo esta
+
+## Interfaz
+
+![Making-time](https://user-images.githubusercontent.com/96756615/224583005-95e11cf8-1666-4bea-80ec-4063bda8d0b5.jpg)
+
